@@ -12,8 +12,8 @@
 }
     </style>
     <nav class="navbar navbar-custom">
-        <div class="container">
-            <div class="navbar-header">
+        <nav class="container">
+            <nav class="navbar-header">
                 <button type="button"
                         class="navbar-toggle collapsed"
                         data-toggle="collapse"
@@ -27,8 +27,8 @@
                 <a class="navbar-brand" href="{{ url_for('index') }}">
                     <img src="https://ezone.ulifestyle.com.hk/images/logo2.png" alt="Ezone" />
                 </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </nav>
+            <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right ">
                     <li>
                         <a class="navbar-brand" href="{{ url_for('index') }}">{{ _('科技焦點') }}</a>
@@ -98,20 +98,24 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-        </div>
+            </nav>
+        </nav>
     </nav>
 {% endblock %}
 {% block content %}
-    <div class="container">
+    <nav class="container">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-                {% for message in messages %}<div class="alert alert-info" role="alert">{{ message }}</div>{% endfor %}
+                {% for message in messages %}
+                    <nav class="alert alert-info" role="alert">
+                        {{ message }}
+                    </nav>
+                {% endfor %}
             {% endif %}
         {% endwith %}
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}
-    </div>
+    </nav>
 {% endblock %}
 {% block scripts %}
     {{ super() }}
