@@ -90,3 +90,7 @@ class Post(db.Model):
 
     def __repr__(self) -> str:
         return f'<Post {self.body}>'
+
+class index_html(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    
