@@ -91,6 +91,8 @@ class Post(db.Model):
     def __repr__(self) -> str:
         return f'<Post {self.body}>'
 
-class index_html(db.Model):
+class website(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(100))
+    middle_data = db.Column(db.String(1000))
     

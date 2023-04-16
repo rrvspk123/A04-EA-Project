@@ -1,14 +1,19 @@
 {% extends 'bootstrap/base.html' %}
 {% block title %}
     {% if title %}
-        ezone.hk 即時科技生活新聞
+        {{ title }} - Microblog
     {% else %}
-        {{ _('Welcome to Microblog') }}
+        {{ _('ezone.hk 即時科技生活新聞') }}
     {% endif %}
 {% endblock %}
 {% block navbar %}
     <style>.navbar-custom {
     background-color: #F39801;
+}
+
+.navbar-bottom{
+    background-color: #F39801;
+    margin-top:30%
 }
     </style>
     <nav class="navbar navbar-custom">
@@ -115,9 +120,9 @@
         {% endwith %}
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}
+        {% block data %}{% endblock %}
     </nav>
-
-    <nav class="navbar navbar-custom">
+    <nav class="navbar navbar-bottom">
         <div class="container">
             <div class="col-md-2 col-xs-6">
                 <h3>
