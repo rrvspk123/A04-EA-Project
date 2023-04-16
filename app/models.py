@@ -93,6 +93,11 @@ class Post(db.Model):
 
 class website(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(100))
+    link = db.Column(db.String(100))
+    middle_data = db.Column(db.String(1000))
+
+class website_relate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    link = db.Column(db.String(100))
     middle_data = db.Column(db.String(1000))
     
