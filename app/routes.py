@@ -14,7 +14,7 @@ def index():
     return render_template("index.html.j2")
 
 @app.route('/wbase')
-def w_base():
+def wbase():
     return render_template("wbase.html.j2")
 
  
