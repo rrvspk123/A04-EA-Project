@@ -15,7 +15,7 @@ def index():
 
 @app.route('/wbase')
 def wbase():
-    return render_template("wbase.html.j2",website=Website)
+    return render_template("wbase.html.j2",website=Website.query.all())
 
  
  
