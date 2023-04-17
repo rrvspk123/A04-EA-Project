@@ -6,7 +6,7 @@ from flask_babel import _, get_locale
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
     ResetPasswordRequestForm, ResetPasswordForm
-from app.models import User, Post
+from app.models import User, Post,Website
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -15,7 +15,7 @@ def index():
 
 @app.route('/wbase')
 def wbase():
-    return render_template("wbase.html.j2")
+    return render_template("wbase.html.j2",website=Website)
 
  
  

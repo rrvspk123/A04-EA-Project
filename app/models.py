@@ -91,12 +91,12 @@ class Post(db.Model):
     def __repr__(self) -> str:
         return f'<Post {self.body}>'
 
-class website(db.Model):
+class Website(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(100))
     middle_data = db.Column(db.String(1000))
 
-class website_relate(db.Model):
+class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(100))
     middle_data = db.Column(db.String(1000))
