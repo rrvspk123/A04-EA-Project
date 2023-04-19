@@ -7,11 +7,13 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
     ResetPasswordRequestForm, ResetPasswordForm, WebForm
 from app.models import User, Post, Website
+import psycopg2
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html.j2')
+
 
 @app.route('/wbase')
 def wbase():
@@ -27,6 +29,30 @@ def addweb():
         db.session.commit()
         return redirect(url_for('addweb'))
     return render_template('addweb.html.j2', form=form)
+
+@app.route('/wbase/<int:id>')
+def page(id):
+    # 建立数据库连接
+    conn = psycopg2.connect(
+        host="postgresdb",
+        database="postgres",
+        user="postgres",
+        password="postgres"
+    )
+
+    # 查询数据
+    cur = conn.cursor()
+    cur.execute(f"SELECT TITLE, LINK_P, LINK_V, MIDDLE_DATA FROM website WHERE ID={id}")
+    result = cur.fetchone()
+
+    # 关闭连接
+    cur.close()
+    conn.close()
+    website = Website.query.all()
+    # 渲染模板
+    return render_template('wbase.html.j2', website=website)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
