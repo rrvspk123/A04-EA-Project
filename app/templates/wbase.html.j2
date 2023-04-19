@@ -44,7 +44,18 @@
                 </div>
             </nav>
             <nav class="col-sm-4">
-                {{ website.link }}
+                {% for website in website %}
+                    <tr>
+                        <iframe width="560"
+                                height="315"
+                                src="{{ website.link_v }}"
+                                title="YouTube video player"
+                                frameborder="0"></iframe>
+                        <img src="{{ website.link_p }}" width="500" height="315" />
+                        <p>{{ website.title }}</p>
+                        <p>{{ website.middle_data }}</p>
+                    </tr>
+                {% endfor %}
             </nav>
             <nav class="col-sm-4">
                 <h3>Column 3</h3>

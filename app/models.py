@@ -77,6 +77,8 @@ class User(UserMixin, db.Model):
         return User.query.get(id)
 
 
+
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -98,8 +100,10 @@ class Website(db.Model):
     title = db.Column(db.String(1000))
     middle_data = db.Column(db.String(1000))
 
+
 class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(100))
     middle_data = db.Column(db.String(1000))
     
+
