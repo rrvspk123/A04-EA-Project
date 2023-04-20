@@ -55,13 +55,15 @@ def page(id):
     cur = conn.cursor()
     cur.execute(f"SELECT TITLE, LINK_P, AUTHOR, MIDDLE_DATA FROM website WHERE ID={id}")
     result = cur.fetchone()
+    cur.execute(f"SELECT TITLE_R, LINK FROM website_relate")
+    result_r = cur.fetchone()
 
     # 关闭连接
     cur.close()
     conn.close()
     website = Website.query.all()
     # 渲染模板
-    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3])
+    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3],title_r=result_r[0],link=result_r[1])
 
 
 

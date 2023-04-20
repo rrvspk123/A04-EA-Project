@@ -115,8 +115,8 @@
   </style>
   <style>
     .slideshow_photo{
-      width: 100%;
-      max-height: 640px;
+      width: 1040px;
+      max-height: 720px;
       display: block;
       background-position: center center;
       background-size: 100%
@@ -124,13 +124,18 @@
     .navbar-custom {
       background-color: #F39801;
     }
+    .slideshow_word{
+      background-color: #F39801;
+      text-align: center;
+      width:1040px
+    }
   </style>
   <div class="slideshow-container">
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
       <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3480000/3483454/20230316_AIR_a01_1024.jpeg"
            class="slideshow_photo">
-      <div class="navbar navbar-custom">
+      <div class="navbar slideshow_word">
         <h2>新版 MacBook Pro、Mac mini 開箱試 M2 Pro 系列晶片效能解構</h2>
       </div>
     </div>
@@ -138,13 +143,17 @@
       <div class="numbertext">2 / 3</div>
       <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/manual-list/highlight//100000/100863/3476887_2303077m201_1024.jpg"
            class="slideshow_photo">
-      <div class="navbar navbar-custom">iPhone 14 / S23 Ultra 影花展打卡實戰！6 式技巧齊齊學</div>
+      <div class="navbar slideshow_word">
+        <h2>iPhone 14 / S23 Ultra 影花展打卡實戰！6 式技巧齊齊學</h2>
+      </div>
     </div>
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
       <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/manual-list/highlight//100000/100863/3489664_2303237sim01_1024.jpg"
            class="slideshow_photo">
-      <div class="navbar navbar-custom">復活節外遊打卡必備 海外 5G 上網卡大搜查</div>
+      <div class="navbar slideshow_word">
+        <h2>復活節外遊打卡必備 海外 5G 上網卡大搜查</h2>
+      </div>
     </div>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -195,5 +204,516 @@
         timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
       }
   </script>
+  {# 网页下半部分的设计 #}
+  <style>
+.name_tag1{
+  color:orange;
+}
+.postcard {
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
 
+.postcard-body {
+  padding: 20px;
+  height: 75%;
+}
+
+.postcard-footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: right;
+  font-size: 12px;
+  height:15%;
+}
+.postcard-down {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: right;
+  font-size: 12px;
+  height:15%;
+}
+.postcard:hover {
+  transform: scale(1.05);
+}
+
+.website_photo{
+  width:100%;
+  height:100%;
+}
+.website_title{
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;;
+    }
+.website_author{
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;;
+}
+.web_relate{
+  text-align: center;;
+}
+  </style>
+  <br>
+  <br>
+  <div class="row">
+    {# 左边 #}
+    {# 科技焦点 #}
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          科技焦點
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+    </div>
+    {# 右边 #}
+    <div class="col-sm-4">
+      <h2 class="web_relate">編輯推介</h2>
+    </div>
+    {# 热门影片 #}
+    <br>
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          热门影片
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+    </div>
+    {# 网络生活 #}
+    <br>
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          网络生活
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+    </div>
+    {# 游戏动漫 #}
+    <br>
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          游戏动漫
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+    </div>
+    {# 教学评测 #}
+    <br>
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          教学评测
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+    </div>
+    {# IT Times #}
+    <br>
+    <div class="col-sm-8">
+      <a href="/srae001/科技焦點">
+        <h2 class="name_tag1">
+          ——|
+          IT Times
+          |——
+        </h2>
+      </a>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
+               alt=""
+               class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
