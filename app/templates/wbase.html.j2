@@ -43,10 +43,42 @@
         margin: 4px 2px;
         cursor: pointer;
     }
+    .web_relate{
+        text-align: center;;
+    }
+    .underline-btn {
+        border: none;
+        text-decoration: underline;
+        background-color: transparent;
+        cursor: pointer;
+        /* add any other styles you'd like */
+    }
+
+.postcard {
+  width: 290px;
+  height: 75px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.postcard:hover {
+  background-color: yellow;
+}
+.postcard-body {
+  padding: 20px;
+}
+.postcard-body:hover {
+  background-color: orange;
+}
+
+
     </style>
     <nav class="container">
         <nav class="row">
-            <nav class="col-sm-2">
+            <nav class="col-sm-1">
                 <div class="photo" style="line-height: 32px;">
                     <!--                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
                     <a class="photo"
@@ -101,15 +133,22 @@
                     <p class="a_middle">{{ middle_data }}</p>
                 </tr>
                 <nav>
-                    <p>
-                        【相關報道】<a href="{{ link }}">{{ title_r }}</a>
-                    </p>
+                    {% for row in web_relate %}
+                        <p>
+                            【相關報道】<a href="{{ link }}">{{ title_r }}</a>
+                        </p>
+                    {% endfor %}
                 </nav>
             </nav>
-            <nav class="col-sm-2">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            <nav class="col-sm-3">
+                <h2 class="web_relate">最新内容</h2>
+                {% for row in new_data %}
+                    <div class="postcard">
+                        <button class="postcard-body">
+                            <a href="{{ row.link_n }}">{{ row.title_n }}</a>
+                        </button>
+                    </div>
+                {% endfor %}
             </nav>
         </nav>
     </nav>

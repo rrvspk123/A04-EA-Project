@@ -105,5 +105,15 @@ class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(1000))
     title_r = db.Column(db.String(100))
+
+class newest_info(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    link_n = db.Column(db.String(1000))
+    title_n = db.Column(db.String(100))
+
+class promote(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    link_pro = db.Column(db.String(1000))
+    title_pro = db.Column(db.String(100))
     
 

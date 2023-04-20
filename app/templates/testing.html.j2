@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% block title %}
+    {% if title %}
+        {{ title }} - Microblog
+    {% else %}
+        {{ _('ezone.hk 即時科技生活新聞') }}
+    {% endif %}
+{% endblock %}
+{% block testing %}
+    {% for row in new_data %}
+        <p>{{ row.link_n }}</p>
+        <p>{{ row.title_n }}</p>
+    {% endfor %}
+{% endblock %}

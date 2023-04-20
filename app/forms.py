@@ -80,3 +80,12 @@ class WebRelateForm(FlaskForm):
     link = StringField(_l('link'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
+class NewForm(FlaskForm):
+    title_n =  StringField(_l('title'), validators=[DataRequired()])
+    link_n = StringField(_l('link'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
+
+class ProForm(FlaskForm):
+    title_pro =  StringField(_l('title'), validators=[DataRequired()])
+    link_pro = StringField(_l('link'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
