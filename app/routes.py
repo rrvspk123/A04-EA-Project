@@ -67,8 +67,9 @@ def page(id):
     conn.close()
     new_data = db.session.query(newest_info).all()
     web_relate = db.session.query(Website_relate).all()
+    website = db.session.query(Website).all()
     # 渲染模板
-    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3],title_r=result_r[0],link=result_r[1],new_data=new_data,web_relate=web_relate)
+    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3],title_r=result_r[0],link=result_r[1],new_data=new_data,web_relate=web_relate,website=website)
 
 @app.route('/addweb_n', methods=['GET', 'POST'])
 def addweb_n():
