@@ -261,6 +261,32 @@
 .web_relate{
   text-align: center;;
 }
+.ellipse-button {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: 60px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.ellipse-button:hover {
+  background-color: #555;
+}
+.invisible-line {
+  border-top: 1px solid transparent;
+  margin: 20px 0;
+  color:#fff;
+}
+
+
+
   </style>
   <br>
   <br>
@@ -327,6 +353,8 @@
           <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
         </div>
       </div>
+      <div class="invisible-line">-</div>
+      <button class="ellipse-button">Click me</button>
     </div>
     {# 编辑推介 #}
     <div class="col-sm-4">
@@ -375,10 +403,14 @@
                class="website_photo"/>
         </div>
         <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
+          <p class="website_title">
+            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
+          </p>
         </div>
         <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
+          <p class="website_author">
+            | 蘇家華 | 20-04-2023 12:40 |
+          </p>
         </div>
       </div>
       <div class="postcard col-sm-4">
@@ -398,6 +430,12 @@
           </p>
         </div>
       </div>
+      <div class="invisible-line">
+        -
+      </div>
+      <button class="ellipse-button">
+        Click me
+      </button>
     </div>
     {# 最新内容 #}
     <div class="col-sm-4">
@@ -483,6 +521,12 @@
           </p>
         </div>
       </div>
+      <div class="invisible-line">
+        -
+      </div>
+      <button class="ellipse-button">
+        Click me
+      </button>
     </div>
     {# 游戏动漫 #}
     <br>
@@ -562,6 +606,12 @@
           </p>
         </div>
       </div>
+      <div class="invisible-line">
+        -
+      </div>
+      <button class="ellipse-button">
+        Click me
+      </button>
     </div>
     {# 教学评测 #}
     <br>
@@ -641,6 +691,12 @@
           </p>
         </div>
       </div>
+      <div class="invisible-line">
+        -
+      </div>
+      <button class="ellipse-button">
+        Click me
+      </button>
     </div>
     {# IT Times #}
     <br>
@@ -720,6 +776,12 @@
           </p>
         </div>
       </div>
+      <div class="invisible-line">
+        -
+      </div>
+      <button class="ellipse-button">
+        Click me
+      </button>
     </div>
   </div>
 {% endblock %}
