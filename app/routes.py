@@ -24,7 +24,7 @@ def wbase():
 def addweb():
     form = WebForm()
     if form.validate_on_submit():
-        webdata = Website(link_v=form.link_v.data, link_p=form.link_p.data, title=form.title.data, middle_data=form.middle_data.data)
+        webdata = Website(author=form.author.data, link_p=form.link_p.data, title=form.title.data, middle_data=form.middle_data.data)
         db.session.add(webdata)
         db.session.commit()
         return redirect(url_for('addweb'))
@@ -42,7 +42,7 @@ def page(id):
 
     # 查询数据
     cur = conn.cursor()
-    cur.execute(f"SELECT TITLE, LINK_P, LINK_V, MIDDLE_DATA FROM website WHERE ID={id}")
+    cur.execute(f"SELECT TITLE, LINK_P, AUTHOR, MIDDLE_DATA FROM website WHERE ID={id}")
     result = cur.fetchone()
 
     # 关闭连接
@@ -50,7 +50,7 @@ def page(id):
     conn.close()
     website = Website.query.all()
     # 渲染模板
-    return render_template('wbase.html.j2', website=website)
+    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3])
 
 
 

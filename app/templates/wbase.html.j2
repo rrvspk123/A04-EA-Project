@@ -12,10 +12,18 @@
         width:40px;
         height:40px;
     }
+    .a_title{
+        font-family: Arial, sans-serif;
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .a_author{
+        text-align: center;
+    }
     </style>
     <nav class="container">
         <nav class="row">
-            <nav class="col-sm-4">
+            <nav class="col-sm-2">
                 <div class="photo" style="line-height: 32px;">
                     <!--                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
                     <a class="photo"
@@ -43,21 +51,20 @@
                     </a>
                 </div>
             </nav>
-            <nav class="col-sm-4">
-                {% for website in website %}
-                    <tr>
-                        <iframe width="560"
-                                height="315"
-                                src="{{ website.link_v }}"
-                                title="YouTube video player"
-                                frameborder="0"></iframe>
-                        <img src="{{ website.link_p }}" width="500" height="315" />
-                        <p>{{ website.title }}</p>
-                        <p>{{ website.middle_data }}</p>
-                    </tr>
-                {% endfor %}
+            <nav class="col-sm-8">
+                <tr>
+                    <p class="a_title">{{ title }}</p>
+                    <p class="a_author">{{ author }}</p>
+                    <img src="{{ link_p }}" width="750" height="500" />
+                    <p>{{ middle_data }}</p>
+                    <iframe width="560"
+                            height="315"
+                            src="{{ link_v }}"
+                            title="YouTube video player"
+                            frameborder="0"></iframe>
+                </tr>
             </nav>
-            <nav class="col-sm-4">
+            <nav class="col-sm-2">
                 <h3>Column 3</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>

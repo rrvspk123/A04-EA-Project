@@ -69,7 +69,7 @@ class PostForm(FlaskForm):
     submit = SubmitField(_l('Submit'))
 
 class WebForm(FlaskForm):
-    link_v = StringField(_l('link_video'), validators=[DataRequired()])
+    author = StringField(_l('author'), validators=[DataRequired()])
     link_p = StringField(_l('link_picture'), validators=[DataRequired()])
     title = StringField(_l('title'), validators=[DataRequired()])
     middle_data = TextAreaField(_l('middle_data'), validators=[DataRequired()])
