@@ -75,4 +75,8 @@ class WebForm(FlaskForm):
     middle_data = TextAreaField(_l('middle_data'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
     
+class WebRelateForm(FlaskForm):
+    title_r =  StringField(_l('title'), validators=[DataRequired()])
+    link = StringField(_l('link'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))
 

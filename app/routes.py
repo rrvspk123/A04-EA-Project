@@ -5,8 +5,8 @@ from werkzeug.urls import url_parse
 from flask_babel import _, get_locale
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
-    ResetPasswordRequestForm, ResetPasswordForm, WebForm
-from app.models import User, Post, Website
+    ResetPasswordRequestForm, ResetPasswordForm, WebForm, WebRelateForm
+from app.models import User, Post, Website, Website_relate
 import psycopg2
 
 @app.route('/', methods=['GET', 'POST'])
@@ -18,7 +18,8 @@ def index():
 @app.route('/wbase')
 def wbase():
     website = Website.query.all()
-    return render_template("wbase.html.j2",website=website)
+    w_relate = Website_relate.query.all()
+    return render_template("wbase.html.j2",website=website,w_relate=w_relate)
 
 @app.route('/addweb', methods=['GET', 'POST'])
 def addweb():
@@ -29,6 +30,16 @@ def addweb():
         db.session.commit()
         return redirect(url_for('addweb'))
     return render_template('addweb.html.j2', form=form)
+
+@app.route('/addweb_r', methods=['GET', 'POST'])
+def addweb_r():
+    form = WebRelateForm()
+    if form.validate_on_submit():
+        web_r_data = Website_relate(link=form.link.data, title_r=form.title_r.data,)
+        db.session.add(web_r_data)
+        db.session.commit()
+        return redirect(url_for('addweb_r'))
+    return render_template('addweb_r.html.j2', form=form)
 
 @app.route('/wbase/<int:id>')
 def page(id):

@@ -17,8 +17,31 @@
         font-size: 32px;
         font-weight: bold;
     }
-    .a_author{
+    
+    .a_middle{
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+    }
+    .bookmark_icon{
+        width:20px;
+        height:20px;
+    }
+
+    .author{
+        align-items: center;
         text-align: center;
+    }
+    .button {
+        background-color: #4080FF;
+        border: none;
+        color: white;
+        padding: 2px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 8px;
+        margin: 4px 2px;
+        cursor: pointer;
     }
     </style>
     <nav class="container">
@@ -54,15 +77,32 @@
             <nav class="col-sm-8">
                 <tr>
                     <p class="a_title">{{ title }}</p>
-                    <p class="a_author">{{ author }}</p>
+                    <div class="author">
+                        <img class="bookmark_icon"
+                             src="https://static-00.iconduck.com/assets.00/tag-icon-256x256-fzxqu53z.png"
+                             alt="bookmark">
+                        <span>{{ author }}</span>
+                        <span>|</span>
+                        <img class="bookmark_icon"
+                             src="https://cdn0.iconfinder.com/data/icons/interface-editing-and-time-1/64/in-plus-zoom-512.png"
+                             alt="search_plus"/>
+                        <img class="bookmark_icon"
+                             src="https://icons.veryicon.com/png/o/miscellaneous/offerino-icons/search-minus-2.png"
+                             alt="search_minus"/>
+                        <span>|</span>
+                        <button class="button">
+                            <img class="bookmark_icon"
+                                 src="https://cdn-icons-png.flaticon.com/512/2107/2107956.png"
+                                 alt=""/>
+                            Like
+                        </button>
+                    </div>
                     <img src="{{ link_p }}" width="750" height="500" />
-                    <p>{{ middle_data }}</p>
-                    <iframe width="560"
-                            height="315"
-                            src="{{ link_v }}"
-                            title="YouTube video player"
-                            frameborder="0"></iframe>
+                    <p class="a_middle">{{ middle_data }}</p>
                 </tr>
+                <nav>
+                <p>【相關報道】<a href="{{ link }}">{{ title_r }}</a></p>
+                </nav>
             </nav>
             <nav class="col-sm-2">
                 <h3>Column 3</h3>

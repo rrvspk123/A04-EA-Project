@@ -103,7 +103,7 @@ class Website(db.Model):
 
 class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    link = db.Column(db.String(100))
-    middle_data = db.Column(db.String(1000))
+    link = db.Column(db.String(1000))
+    title_r = db.Column(db.String(100))
     
 

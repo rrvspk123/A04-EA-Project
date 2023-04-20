@@ -1,0 +1,16 @@
+{% extends "base.html.j2" %}
+{% block title %}
+    {% if title %}
+        {{ title }} - Microblog
+    {% else %}
+        {{ _('ezone.hk 即時科技生活新聞') }}
+    {% endif %}
+{% endblock %}
+{% block addweb_r %}
+    <form method="POST" action="{{ url_for('addweb_r') }}">
+        {{ form.csrf_token }}
+        <div>{{ form.title_r.label }} {{ form.title_r }}</div>
+        <div>{{ form.link.label }} {{ form.link }}</div>
+        <div>{{ form.submit }}</div>
+    </form>
+{% endblock %}
