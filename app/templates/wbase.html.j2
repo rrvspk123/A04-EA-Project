@@ -1,11 +1,5 @@
 {% extends "base.html.j2" %}
-{% block title %}
-    {% if title %}
-        {{ title }} - Microblog
-    {% else %}
-        {{ _('ezone.hk 即時科技生活新聞') }}
-    {% endif %}
-{% endblock %}
+{% block title %}{{ _('ezone.hk 即時科技生活新聞') }}{% endblock %}
 {% block data %}
     <style>
     .photo{
@@ -212,68 +206,71 @@
             </nav>
         </nav>
     </nav>
-    {# for looping other website#}
+    {# for looping other website #}
+    {% set title =  title %}
     {% for row in website %}
-        <div class="container">
-            <nav class="col-sm-1">
-            </nav>
-            <nav class="col-sm-8">
-                <tr>
-                    <p class="a_title">{{ row.title }}</p>
-                    <div class="author">
-                        <img class="bookmark_icon"
-                             src="https://static-00.iconduck.com/assets.00/tag-icon-256x256-fzxqu53z.png"
-                             alt="bookmark">
-                        <span>{{ row.author }}</span>
-                        <span>|</span>
-                        <img class="bookmark_icon"
-                             src="https://cdn0.iconfinder.com/data/icons/interface-editing-and-time-1/64/in-plus-zoom-512.png"
-                             alt="search_plus"/>
-                        <img class="bookmark_icon"
-                             src="https://icons.veryicon.com/png/o/miscellaneous/offerino-icons/search-minus-2.png"
-                             alt="search_minus"/>
-                        <span>|</span>
-                        <button class="button">
-                            <img class="bookmark_icon"
-                                 src="https://cdn-icons-png.flaticon.com/512/2107/2107956.png"
-                                 alt=""/>
-                            Like
-                        </button>
-                    </div>
-                    <img src="{{ row.link_p }}" width="750" height="500" />
-                    <p class="a_middle">{{ row.middle_data }}</p>
-                </tr>
-                <nav>
-                    {% for row in web_relate %}
-                        <p>
-                            【相關報道】<a href="{{ row.link }}">{{ row.title_r }}</a>
-                        </p>
-                    {% endfor %}
+        {% if row.title != title %}
+            <div class="container">
+                <nav class="col-sm-1">
                 </nav>
-                <br>
-                <div class="middle">
-                    <nav class="">
-                        <h3 class="name_tag1">
-                            ——|
-                            相關文章
-                            |——
-                        </h3>
-                    </nav>
-                    <br>
-                    <br>
-                    {% for row in web_relate %}
-                        <div class="postcard2">
-                            <button class="postcard-body2">
-                                <a href="{{ row.link }}">{{ row.title_r }}</a>
+                <nav class="col-sm-8">
+                    <tr>
+                        <p class="a_title">{{ row.title }}</p>
+                        <div class="author">
+                            <img class="bookmark_icon"
+                                 src="https://static-00.iconduck.com/assets.00/tag-icon-256x256-fzxqu53z.png"
+                                 alt="bookmark">
+                            <span>{{ row.author }}</span>
+                            <span>|</span>
+                            <img class="bookmark_icon"
+                                 src="https://cdn0.iconfinder.com/data/icons/interface-editing-and-time-1/64/in-plus-zoom-512.png"
+                                 alt="search_plus"/>
+                            <img class="bookmark_icon"
+                                 src="https://icons.veryicon.com/png/o/miscellaneous/offerino-icons/search-minus-2.png"
+                                 alt="search_minus"/>
+                            <span>|</span>
+                            <button class="button">
+                                <img class="bookmark_icon"
+                                     src="https://cdn-icons-png.flaticon.com/512/2107/2107956.png"
+                                     alt=""/>
+                                Like
                             </button>
                         </div>
-                    {% endfor %}
+                        <img src="{{ row.link_p }}" width="750" height="500" />
+                        <p class="a_middle">{{ row.middle_data }}</p>
+                    </tr>
+                    <nav>
+                        {% for row in web_relate %}
+                            <p>
+                                【相關報道】<a href="{{ row.link }}">{{ row.title_r }}</a>
+                            </p>
+                        {% endfor %}
+                    </nav>
                     <br>
-                    <div class="underline"></div>
-                    <br>
-                </div>
-            </nav>
-        </div>
+                    <div class="middle">
+                        <nav class="">
+                            <h3 class="name_tag1">
+                                ——|
+                                相關文章
+                                |——
+                            </h3>
+                        </nav>
+                        <br>
+                        <br>
+                        {% for row in web_relate %}
+                            <div class="postcard2">
+                                <button class="postcard-body2">
+                                    <a href="{{ row.link }}">{{ row.title_r }}</a>
+                                </button>
+                            </div>
+                        {% endfor %}
+                        <br>
+                        <div class="underline"></div>
+                        <br>
+                    </div>
+                </nav>
+            </div>
+        {% endif %}
     {% endfor %}
     <br />
     <br />

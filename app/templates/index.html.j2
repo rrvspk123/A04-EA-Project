@@ -229,13 +229,15 @@
   padding: 10px;
   text-align: right;
   font-size: 12px;
-  height:15%;
+  width:345px;
+  height:50px;
 }
 .postcard-down {
   background-color: #f2f2f2;
   padding: 10px;
   text-align: right;
   font-size: 12px;
+  width:345px;
   height:15%;
 }
 .postcard:hover {
@@ -248,7 +250,7 @@
 }
 .website_title{
         font-family: Arial, sans-serif;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: bold;
         text-align: center;;
     }
@@ -284,7 +286,52 @@
   margin: 20px 0;
   color:#fff;
 }
+.postcard_pro {
+  width: 360px;
+  height: 110px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
 
+.postcard_pro:hover {
+  background-color: yellow;
+}
+.postcard_pro-body {
+  padding: 20px;
+  width:100%;
+}
+.postcard_pro-body:hover {
+  background-color: orange;
+}
+.photo_pro{
+  width:100px;
+  height:74.81px;
+  float: left;
+  margin-right: 10px;
+}
+.postcard_new {
+  width: 360px;
+  height: 84px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.postcard_new:hover {
+  background-color: yellow;
+}
+.postcard_new-body {
+  padding: 20px;
+  width:100%;
+}
+.postcard_new-body:hover {
+  background-color: orange;
+}
 
 
   </style>
@@ -301,487 +348,231 @@
           |——
         </h2>
       </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
+      {% set limit = 4 %}
+      {% for row in website %}
+        {% if loop.index <= limit %}
+          <div class="postcard col-sm-4">
+            <div class="postcard-body">
+              <a href="/wbase/{{ row.id }}">
+                <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+              </a>
+            </div>
+            <div class="postcard-footer">
+              <p class="website_title">{{ row.title }}</p>
+            </div>
+            <div class="postcard-down">
+              <p class="website_author">{{ row.author }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
       <div class="invisible-line">-</div>
-      <button class="ellipse-button">Click me</button>
+      <button class="ellipse-button">View more</button>
     </div>
     {# 编辑推介 #}
     <div class="col-sm-4">
       <h2 class="web_relate">編輯推介</h2>
-    </div>
-    {# 热门影片 #}
-    <br>
-    <div class="col-sm-8">
-      <a href="/srae001/科技焦點">
-        <h2 class="name_tag1">
-          ——|
-          热门影片
-          |——
-        </h2>
-      </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
+      {% for row in pro_data %}
+        <div class="postcard_pro">
+          <a href="{{ row.link_pro }}">
+            <button class="postcard_pro-body">
+              <img src="{{ row.link_pro2 }}" class="photo_pro"/>
+              <p>{{ row.title_pro }}</p>
+            </button>
+          </a>
         </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊</p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">| 蘇家華 | 20-04-2023 12:40 |</p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="invisible-line">
-        -
-      </div>
-      <button class="ellipse-button">
-        Click me
-      </button>
-    </div>
-    {# 最新内容 #}
-    <div class="col-sm-4">
-      <h2 class="web_relate">
-        最新内容
-      </h2>
-    </div>
-    {# 网络生活 #}
-    <br>
-    <div class="col-sm-8">
-      <a href="/srae001/科技焦點">
-        <h2 class="name_tag1">
-          ——|
-          网络生活
-          |——
-        </h2>
-      </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="invisible-line">
-        -
-      </div>
-      <button class="ellipse-button">
-        Click me
-      </button>
-    </div>
-    {# 游戏动漫 #}
-    <br>
-    <div class="col-sm-8">
-      <a href="/srae001/科技焦點">
-        <h2 class="name_tag1">
-          ——|
-          游戏动漫
-          |——
-        </h2>
-      </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="invisible-line">
-        -
-      </div>
-      <button class="ellipse-button">
-        Click me
-      </button>
-    </div>
-    {# 教学评测 #}
-    <br>
-    <div class="col-sm-8">
-      <a href="/srae001/科技焦點">
-        <h2 class="name_tag1">
-          ——|
-          教学评测
-          |——
-        </h2>
-      </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="invisible-line">
-        -
-      </div>
-      <button class="ellipse-button">
-        Click me
-      </button>
-    </div>
-    {# IT Times #}
-    <br>
-    <div class="col-sm-8">
-      <a href="/srae001/科技焦點">
-        <h2 class="name_tag1">
-          ——|
-          IT Times
-          |——
-        </h2>
-      </a>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="postcard col-sm-4">
-        <div class="postcard-body">
-          <img src="https://resource01-proxy.ulifestyle.com.hk/res/v3/image/content/3505000/3508259/0419_30carrollabledisplay_01_1024.jpg"
-               alt=""
-               class="website_photo"/>
-        </div>
-        <div class="postcard-footer">
-          <p class="website_title">
-            Hyundai Mobis 研發車用可捲曲顯示屏 全球首創開車後可顯示行車資訊
-          </p>
-        </div>
-        <div class="postcard-down">
-          <p class="website_author">
-            | 蘇家華 | 20-04-2023 12:40 |
-          </p>
-        </div>
-      </div>
-      <div class="invisible-line">
-        -
-      </div>
-      <button class="ellipse-button">
-        Click me
-      </button>
+      {% endfor %}
     </div>
   </div>
+  {# 热门影片 #}
+  <br>
+  <div class="col-sm-8">
+    <a href="/srae001/科技焦點">
+      <h2 class="name_tag1">
+        ——|
+        热门影片
+        |——
+      </h2>
+    </a>
+    {% set limit = 4 %}
+    {% set start_id = 4 %}
+    {% for row in website[start_id:] %}
+      {% if loop.index <= limit %}
+        <div class="postcard col-sm-4">
+          <div class="postcard-body">
+            <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+          </div>
+          <div class="postcard-footer">
+            <p class="website_title">{{ row.title }}</p>
+          </div>
+          <div class="postcard-down">
+            <p class="website_author">{{ row.author }}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <div class="invisible-line">-</div>
+    <button class="ellipse-button">View more</button>
+  </div>
+</div>
+{# 最新内容 #}
+<div class="col-sm-4">
+  <h2 class="web_relate">最新内容</h2>
+  {% for row in new_data %}
+    <div class="postcard_new">
+      <a href="{{ row.link_n }}">
+        <button class="postcard_new-body">
+          <p>{{ row.title_n }}</p>
+        </button>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+{# 网络生活 #}
+<br>
+<div class="col-sm-8">
+  <a href="/srae001/科技焦點">
+    <h2 class="name_tag1">
+      ——|
+      网络生活
+      |——
+    </h2>
+  </a>
+  {% set limit = 4 %}
+  {% set start_id = 8 %}
+  {% for row in website[start_id:] %}
+    {% if loop.index <= limit %}
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">{{ row.title }}</p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">{{ row.author }}</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="invisible-line">-</div>
+  <button class="ellipse-button">
+    View more
+  </button>
+</div>
+{# 游戏动漫 #}
+<br>
+<div class="col-sm-8">
+  <a href="/srae001/科技焦點">
+    <h2 class="name_tag1">
+      ——|
+      游戏动漫
+      |——
+    </h2>
+  </a>
+  {% set limit = 4 %}
+  {% set start_id = 12 %}
+  {% for row in website[start_id:] %}
+    {% if loop.index <= limit %}
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            {{ row.title }}
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            {{ row.author }}
+          </p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="invisible-line">
+    -
+  </div>
+  <button class="ellipse-button">
+    View more
+  </button>
+</div>
+{# 教学评测 #}
+<br>
+<div class="col-sm-8">
+  <a href="/srae001/科技焦點">
+    <h2 class="name_tag1">
+      ——|
+      教学评测
+      |——
+    </h2>
+  </a>
+  {% set limit = 4 %}
+  {% set start_id = 16 %}
+  {% for row in website[start_id:] %}
+    {% if loop.index <= limit %}
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            {{ row.title }}
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            {{ row.author }}
+          </p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="invisible-line">
+    -
+  </div>
+  <button class="ellipse-button">
+    View more
+  </button>
+</div>
+{# IT Times #}
+<br>
+<div class="col-sm-8">
+  <a href="/srae001/科技焦點">
+    <h2 class="name_tag1">
+      ——|
+      IT Times
+      |——
+    </h2>
+  </a>
+  {% set limit = 4 %}
+  {% set start_id = 20 %}
+  {% for row in website[start_id:] %}
+    {% if loop.index <= limit %}
+      <div class="postcard col-sm-4">
+        <div class="postcard-body">
+          <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+        </div>
+        <div class="postcard-footer">
+          <p class="website_title">
+            {{ row.title }}
+          </p>
+        </div>
+        <div class="postcard-down">
+          <p class="website_author">
+            {{ row.author }}
+          </p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="invisible-line">
+    -
+  </div>
+  <button class="ellipse-button">
+    View more
+  </button>
+</div>
+</div>
 {% endblock %}

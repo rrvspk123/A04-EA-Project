@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, g
+from flask import render_template, flash, redirect, url_for, request, g, send_from_directory
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from flask_babel import _, get_locale
@@ -12,7 +12,10 @@ import psycopg2
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html.j2')
+    website = db.session.query(Website).all()
+    pro_data = db.session.query(promote).all()
+    new_data = db.session.query(newest_info).all()
+    return render_template('index.html.j2',website=website,pro_data=pro_data,new_data=new_data)
 
 
 @app.route('/wbase')
@@ -54,7 +57,7 @@ def page(id):
 
     # 查询数据
     cur = conn.cursor()
-    cur.execute(f"SELECT TITLE, LINK_P, AUTHOR, MIDDLE_DATA FROM website WHERE ID={id}")
+    cur.execute(f"SELECT TITLE, LINK_P, AUTHOR, MIDDLE_DATA,ID FROM website WHERE ID={id}")
     result = cur.fetchone()
     cur.execute(f"SELECT TITLE_R, LINK FROM website_relate")
     result_r = cur.fetchone()
@@ -69,7 +72,9 @@ def page(id):
     web_relate = db.session.query(Website_relate).all()
     website = db.session.query(Website).all()
     # 渲染模板
-    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3],title_r=result_r[0],link=result_r[1],new_data=new_data,web_relate=web_relate,website=website)
+    return render_template('wbase.html.j2', title=result[0], link_p=result[1],author=result[2],middle_data=result[3],id=result[4],title_r=result_r[0],link=result_r[1],new_data=new_data,web_relate=web_relate,website=website)
+
+
 
 @app.route('/addweb_n', methods=['GET', 'POST'])
 def addweb_n():
@@ -85,17 +90,18 @@ def addweb_n():
 def addweb_pro():
     form = ProForm()
     if form.validate_on_submit():
-        pro_data = promote(link_pro=form.link_pro.data, title_pro=form.title_pro.data,)
+        pro_data = promote(link_pro=form.link_pro.data, title_pro=form.title_pro.data,link_pro2=form.link_pro2.data)
         db.session.add(pro_data)
         db.session.commit()
         return redirect(url_for('addweb_pro'))
     return render_template('addweb_pro.html.j2', form=form)
 
-
 @app.route("/testing")
 def testing():
     new_data = db.session.query(newest_info).all()
     return render_template("testing.html.j2", new_data=new_data)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -88,4 +88,6 @@ class NewForm(FlaskForm):
 class ProForm(FlaskForm):
     title_pro =  StringField(_l('title'), validators=[DataRequired()])
     link_pro = StringField(_l('link'), validators=[DataRequired()])
+    link_pro2 = StringField(_l('link_picture'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
+

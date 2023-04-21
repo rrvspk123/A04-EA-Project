@@ -98,7 +98,8 @@ class Website(db.Model):
     author = db.Column(db.String(100))
     link_p = db.Column(db.String(1000))
     title = db.Column(db.String(1000))
-    middle_data = db.Column(db.String(1000))
+    middle_data = db.Column(db.String(3000))
+
 
 
 class Website_relate(db.Model):
@@ -114,6 +115,7 @@ class newest_info(db.Model):
 class promote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_pro = db.Column(db.String(1000))
+    link_pro2 = db.Column(db.String(1000))
     title_pro = db.Column(db.String(100))
     
 
