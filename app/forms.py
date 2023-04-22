@@ -73,6 +73,7 @@ class WebForm(FlaskForm):
     link_p = StringField(_l('link_picture'), validators=[DataRequired()])
     title = StringField(_l('title'), validators=[DataRequired()])
     middle_data = TextAreaField(_l('middle_data'), validators=[DataRequired()])
+    attributes = StringField(_l('attributes'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
     
 class WebRelateForm(FlaskForm):
@@ -91,3 +92,8 @@ class ProForm(FlaskForm):
     link_pro2 = StringField(_l('link_picture'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
+class tabForm(FlaskForm):
+    title_w=  StringField(_l('title'), validators=[DataRequired()])
+    link_w= StringField(_l('link'), validators=[DataRequired()])
+    attributes = StringField(_l('attributes'), validators=[DataRequired()])
+    submit = SubmitField(_l('Submit'))

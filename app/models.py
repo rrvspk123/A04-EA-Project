@@ -98,9 +98,14 @@ class Website(db.Model):
     author = db.Column(db.String(100))
     link_p = db.Column(db.String(1000))
     title = db.Column(db.String(1000))
-    middle_data = db.Column(db.String(3000))
+    middle_data = db.Column(db.String(10000))
+    attributes = db.Column(db.String(100))
 
-
+class Web_tab(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title_w = db.Column(db.String(100))
+    link_w = db.Column(db.String(1000))
+    attributes = db.Column(db.String(100))
 
 class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)

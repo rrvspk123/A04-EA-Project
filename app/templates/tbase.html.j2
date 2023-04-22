@@ -1,0 +1,305 @@
+{% extends "base.html.j2" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+  <style>
+      * {
+        box-sizing: border-box
+      }
+      body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+      }
+      .mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
+      }
+
+      
+  </style>
+  {# 网页下半部分的设计 #}
+  <style>
+.name_tag1{
+  color:orange;
+}
+.postcard {
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.postcard-body {
+  padding: 20px;
+  height: 75%;
+}
+
+.postcard-footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: right;
+  font-size: 12px;
+  width:345px;
+  height:50px;
+}
+.postcard-down {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: right;
+  font-size: 12px;
+  width:345px;
+  height:15%;
+}
+.postcard:hover {
+  transform: scale(1.05);
+}
+
+.website_photo{
+  width:100%;
+  height:100%;
+}
+.website_title{
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;;
+    }
+.website_author{
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;;
+}
+.web_relate{
+  text-align: center;;
+}
+.ellipse-button {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: 60px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.ellipse-button:hover {
+  background-color: #555;
+}
+.invisible-line {
+  border-top: 1px solid transparent;
+  margin: 20px 0;
+  color:#fff;
+}
+.postcard_pro {
+  width: 360px;
+  height: 110px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.postcard_pro:hover {
+  background-color: yellow;
+}
+.postcard_pro-body {
+  padding: 20px;
+  width:100%;
+}
+.postcard_pro-body:hover {
+  background-color: orange;
+}
+.photo_pro{
+  width:100px;
+  height:74.81px;
+  float: left;
+  margin-right: 10px;
+}
+.postcard_new {
+  width: 360px;
+  height: 84px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+.postcard_new:hover {
+  background-color: yellow;
+}
+.postcard_new-body {
+  padding: 20px;
+  width:100%;
+}
+.postcard_new-body:hover {
+  background-color: orange;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  </style>
+  <br>
+  <br>
+  <div class="row title">
+    <h2 class="">{{ title_w }}</h2>
+  </div>
+  <div class="row">
+    {# 左边 #}
+    {# 科技焦点 #}
+    <div class="col-sm-8">
+      {% set att = attributes %}
+      {% for row in website %}
+        {% if row.attributes == att %}
+          <div class="postcard col-sm-4">
+            <div class="postcard-body">
+              <a href="/wbase/{{ row.id }}">
+                <img src="{{ row.link_p }}" alt="" class="website_photo"/>
+              </a>
+            </div>
+            <div class="postcard-footer">
+              <p class="website_title">{{ row.title }}</p>
+            </div>
+            <div class="postcard-down">
+              <p class="website_author">{{ row.author }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="invisible-line">-</div>
+    </div>
+    {# 编辑推介 #}
+    <div class="col-sm-4">
+      <h2 class="web_relate">編輯推介</h2>
+      {% for row in pro_data %}
+        <div class="postcard_pro">
+          <a href="{{ row.link_pro }}">
+            <button class="postcard_pro-body">
+              <img src="{{ row.link_pro2 }}" class="photo_pro"/>
+              <p>{{ row.title_pro }}</p>
+            </button>
+          </a>
+        </div>
+      {% endfor %}
+      <h2 class="web_relate">最新内容</h2>
+      {% for row in new_data %}
+        <div class="postcard_new">
+          <a href="{{ row.link_n }}">
+            <button class="postcard_new-body">
+              <p>{{ row.title_n }}</p>
+            </button>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

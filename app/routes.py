@@ -5,8 +5,8 @@ from werkzeug.urls import url_parse
 from flask_babel import _, get_locale
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
-    ResetPasswordRequestForm, ResetPasswordForm, WebForm, WebRelateForm, NewForm, ProForm
-from app.models import User, Post, Website, Website_relate, newest_info, promote
+    ResetPasswordRequestForm, ResetPasswordForm, WebForm, WebRelateForm, NewForm, ProForm, tabForm
+from app.models import User, Post, Website, Website_relate, newest_info, promote, Web_tab
 import psycopg2
 
 @app.route('/', methods=['GET', 'POST'])
@@ -23,13 +23,49 @@ def wbase():
     website = Website.query.all()
     w_relate = Website_relate.query.all()
     new_data = db.session.query(newest_info).all()
-    return render_template("wbase.html.j2",website=website,w_relate=w_relate,new_data=new_data)
+    pro_data = db.session.query(promote).all()
+    return render_template("wbase.html.j2",website=website,w_relate=w_relate,new_data=new_data,pro_data=pro_data)
+
+@app.route('/tbase')
+def tbase():
+    website = Website.query.all()
+    w_relate = Website_relate.query.all()
+    new_data = db.session.query(newest_info).all()
+    pro_data = db.session.query(promote).all()
+    return render_template("tbase.html.j2",website=website,w_relate=w_relate,new_data=new_data,pro_data=pro_data)
+
+@app.route('/tbase/<int:id>')
+def page2(id):
+    # 建立数据库连接
+    conn = psycopg2.connect(
+        host="postgresdb",
+        database="postgres",
+        user="postgres",
+        password="postgres"
+    )
+
+    # 查询数据
+    cur = conn.cursor()
+    cur.execute(f"SELECT TITLE_W,ATTRIBUTES FROM Web_tab WHERE ID={id}")
+    result = cur.fetchone()
+
+    # 关闭连接
+    cur.close()
+    conn.close()
+    website = Website.query.all()
+    w_relate = Website_relate.query.all()
+    new_data = db.session.query(newest_info).all()
+    pro_data = db.session.query(promote).all()
+    web_tab = db.session.query(Web_tab).all()
+    # 渲染模板
+    return render_template('tbase.html.j2',title_w=result[0],attributes=result[1],website=website,w_relate=w_relate,new_data=new_data,pro_data=pro_data,web_tab=web_tab)
+
 
 @app.route('/addweb', methods=['GET', 'POST'])
 def addweb():
     form = WebForm()
     if form.validate_on_submit():
-        webdata = Website(author=form.author.data, link_p=form.link_p.data, title=form.title.data, middle_data=form.middle_data.data)
+        webdata = Website(author=form.author.data, link_p=form.link_p.data, title=form.title.data, middle_data=form.middle_data.data,attributes=form.attributes.data)
         db.session.add(webdata)
         db.session.commit()
         return redirect(url_for('addweb'))
@@ -95,6 +131,16 @@ def addweb_pro():
         db.session.commit()
         return redirect(url_for('addweb_pro'))
     return render_template('addweb_pro.html.j2', form=form)
+
+@app.route('/addweb_w', methods=['GET', 'POST'])
+def addweb_w():
+    form = tabForm()
+    if form.validate_on_submit():
+        tab_data = Web_tab(link_w=form.link_w.data, title_w=form.title_w.data)
+        db.session.add(tab_data)
+        db.session.commit()
+        return redirect(url_for('addweb_w'))
+    return render_template('addweb_w.html.j2', form=form)
 
 @app.route("/testing")
 def testing():
