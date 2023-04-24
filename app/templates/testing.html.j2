@@ -1,3 +1,36 @@
 {% extends "base.html.j2" %}
 {% block title %}{{ _('ezone.hk 即時科技生活新聞') }}{% endblock %}
-{% block testing %}{% endblock %}
+{% block testing %}
+    <button onclick="showSearch()">Search</button>
+    <div id="search-screen">
+        <form>
+            <label>123</label>
+        </form>
+    </div>
+    <script>function showSearch() {
+  var searchScreen = document.getElementById("search-screen");
+  searchScreen.style.display = "block";
+  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+}
+
+function hideSearch() {
+  var searchScreen = document.getElementById("search-screen");
+  searchScreen.style.display = "none";
+  document.body.style.backgroundColor = "";
+}
+    </script>
+    <style>
+	#search-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1;
+}
+    </style>
+{% endblock %}

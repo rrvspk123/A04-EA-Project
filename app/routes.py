@@ -136,11 +136,29 @@ def addweb_pro():
 def addweb_w():
     form = tabForm()
     if form.validate_on_submit():
-        tab_data = Web_tab(link_w=form.link_w.data, title_w=form.title_w.data)
+        tab_data = Web_tab(link_w=form.link_w.data, title_w=form.title_w.data,attributes=form.attributes.data)
         db.session.add(tab_data)
         db.session.commit()
         return redirect(url_for('addweb_w'))
     return render_template('addweb_w.html.j2', form=form)
+
+
+@app.route("/search",methods=['GET', 'POST'])
+def search():
+    conn = psycopg2.connect(
+        host="postgresdb",
+        database="postgres",
+        user="postgres",
+        password="postgres"
+    )
+    search_query = request.form['search']
+    # 查询数据
+    result = Website.query.filter(Website.title.like('%{}%'.format(search_query))).all()
+    conn.close()  
+
+
+
+    return render_template('search.html.j2',result=result)
 
 @app.route("/testing")
 def testing():

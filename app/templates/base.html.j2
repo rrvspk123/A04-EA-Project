@@ -9,6 +9,77 @@
     background-color: #F39801;
     margin-top:30%
 }
+.top{
+    background-color: #F39801;
+    border: none;
+}
+.form_req {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-group {
+  margin: 0 10px;
+}
+
+.inputline {
+  border: none;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.ellipse-button {
+  display: block;
+  width: 120px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.ellipse-button:hover {
+  background-color: #555;
+}
+
+    </style>
+    <script>function showSearch() {
+  var searchScreen = document.getElementById("search-screen");
+  searchScreen.style.display = "block";
+  document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+}
+
+function hideSearch() {
+  var searchScreen = document.getElementById("search-screen");
+  searchScreen.style.display = "none";
+  document.body.style.backgroundColor = "";
+}
+    </script>
+    <style>
+	#search-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  background-color: none;
+  padding: 20px;
+  z-index: 1;
+  display: none;
+}
     </style>
     <nav class="navbar navbar-custom">
         <nav class="container">
@@ -41,13 +112,22 @@
                            aria-expanded="false"><span class="caret"></span></a>
                         <ul class="dropdown-menu navmenu-nav" role="menu">
                             <li>
-                                <a href="/srae022/業界頭條">業界頭條</a>
+                                <a href="/tbase/8">iPhone</a>
                             </li>
                             <li>
-                                <a href="/srae023/AI 策略">AI 策略</a>
+                                <a href="/tbase/9">5G流動</a>
                             </li>
                             <li>
-                                <a href="/srae024/名家專欄">名家專欄</a>
+                                <a href="/tbase/10">電腦</a>
+                            </li>
+                            <li>
+                                <a href="/tbase/11">數碼</a>
+                            </li>
+                            <li>
+                                <a href="/tbase/12">智能家居</a>
+                            </li>
+                            <li>
+                                <a href="/tbase/13">科技汽車</a>
                             </li>
                         </ul>
                     </li>
@@ -63,13 +143,16 @@
                            aria-expanded="false"><span class="caret"></span></a>
                         <ul class="dropdown-menu navmenu-nav" role="menu">
                             <li>
-                                <a href="/srae022/業界頭條">業界頭條</a>
+                                <a href="/tbase/14">網絡熱話</a>
                             </li>
                             <li>
-                                <a href="/srae023/AI 策略">AI 策略</a>
+                                <a href="/tbase/15">生活情報</a>
                             </li>
                             <li>
-                                <a href="/srae024/名家專欄">名家專欄</a>
+                                <a href="/tbase/16">筍買着數</a>
+                            </li>
+                            <li>
+                                <a href="/tbase/17">旅遊筍料</a>
                             </li>
                         </ul>
                     </li>
@@ -85,13 +168,13 @@
                            aria-expanded="false"><span class="caret"></span></a>
                         <ul class="dropdown-menu navmenu-nav" role="menu">
                             <li>
-                                <a href="/srae014/手遊攻略">手遊攻略</a>
+                                <a href="/tbase/18">手遊攻略</a>
                             </li>
                             <li>
-                                <a href="/srae015/電競遊戲">電競遊戲</a>
+                                <a href="/tbase/19">電競遊戲</a>
                             </li>
                             <li>
-                                <a href="/srae016/動漫玩具">動漫玩具</a>
+                                <a href="/tbase/20">動漫玩具</a>
                             </li>
                         </ul>
                     </li>
@@ -107,13 +190,13 @@
                            aria-expanded="false"><span class="caret"></span></a>
                         <ul class="dropdown-menu navmenu-nav" role="menu">
                             <li>
-                                <a href="/srae022/業界頭條">業界頭條</a>
+                                <a href="/tbase/21">應用秘技</a>
                             </li>
                             <li>
-                                <a href="/srae023/AI 策略">AI 策略</a>
+                                <a href="/tbase/22">新品測試</a>
                             </li>
                             <li>
-                                <a href="/srae024/名家專欄">名家專欄</a>
+                                <a href="/tbase/23">Apps 情報 </a>
                             </li>
                         </ul>
                     </li>
@@ -129,13 +212,13 @@
                            aria-expanded="false"><span class="caret"></span></a>
                         <ul class="dropdown-menu navmenu-nav" role="menu">
                             <li>
-                                <a href="/srae022/業界頭條">業界頭條</a>
+                                <a href="/tbase/24">業界頭條</a>
                             </li>
                             <li>
-                                <a href="/srae023/AI 策略">AI 策略</a>
+                                <a href="/tbase/25">AI 策略</a>
                             </li>
                             <li>
-                                <a href="/srae024/名家專欄">名家專欄</a>
+                                <a href="/tbase/26">名家專欄 </a>
                             </li>
                         </ul>
                     </li>
@@ -146,10 +229,11 @@
                         <a class="navbar-brand" href="/tbase/7">{{ _('特集') }}</a>
                     </li>
                     <li>
-                        <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <button onclick="showSearch()" class="top">
                             <img src="https://ezone.ulifestyle.com.hk/images/icon-search.png"
-                                 alt="search">
-                        </a>
+                                 alt="search"
+                                 class="top"/>
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -169,6 +253,20 @@
         {% endwith %}
         {# application content needs to be provided in the app_content block #}
         <nav class="col-xl-12">
+            <div id="search-screen">
+                <form method="POST" action="/search" class="form_req">
+                    {% set default_search = "default_value" %}
+                    <input type="text"
+                           name="search"
+                           id="search"
+                           placeholder="请输入关键词"
+                           class="inputline"
+                           value="{{ default_search }}">
+                    <button class="ellipse-button" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
             {% block app_content %}{% endblock %}
             {% block data %}{% endblock %}
             {% block addweb %}{% endblock %}
@@ -176,9 +274,11 @@
             {% block addweb_n %}{% endblock %}
             {% block addweb_pro %}{% endblock %}
             {% block addweb_w %}{% endblock %}
+            {% block search %}{% endblock %}
             {% block testing %}{% endblock %}
         </nav>
     </nav>
+    {# 底部 #}
     <nav class="navbar navbar-bottom">
         <div class="container">
             <div class="col-md-2 col-xs-6">
@@ -187,22 +287,22 @@
                 </h3>
                 <ul style="list-style-type: none">
                     <li>
-                        <a href="/srae002/iPhone">iPhone</a>
+                        <a href="/tbase/8">iPhone</a>
                     </li>
                     <li>
-                        <a href="/srae005/5G流動">5G流動</a>
+                        <a href="/tbase/9">5G流動</a>
                     </li>
                     <li>
-                        <a href="/srae003/電腦">電腦</a>
+                        <a href="/tbase/10">電腦</a>
                     </li>
                     <li>
-                        <a href="/srae006/數碼">數碼</a>
+                        <a href="/tbase/11">數碼</a>
                     </li>
                     <li>
-                        <a href="/srae004/智能家居">智能家居</a>
+                        <a href="/tbase/12">智能家居</a>
                     </li>
                     <li>
-                        <a href="/srae007/科技汽車">科技汽車</a>
+                        <a href="/tbase/13">科技汽車</a>
                     </li>
                 </ul>
             </div>
@@ -212,16 +312,16 @@
                 </h3>
                 <ul style="list-style-type: none">
                     <li>
-                        <a href="/srae009/網絡熱話">網絡熱話</a>
+                        <a href="/tbase/14">網絡熱話</a>
                     </li>
                     <li>
-                        <a href="/srae011/生活情報">生活情報</a>
+                        <a href="/tbase/15">生活情報</a>
                     </li>
                     <li>
-                        <a href="/srae010/筍買着數">筍買着數</a>
+                        <a href="/tbase/16">筍買着數</a>
                     </li>
                     <li>
-                        <a href="/srae012/旅遊筍料">旅遊筍料</a>
+                        <a href="/tbase/17">旅遊筍料</a>
                     </li>
                     <li>
                         <a href="#">&nbsp;</a>
@@ -237,13 +337,13 @@
                 </h3>
                 <ul style="list-style-type: none">
                     <li>
-                        <a href="/srae014/手遊攻略">手遊攻略</a>
+                        <a href="/tbase/18">手遊攻略</a>
                     </li>
                     <li>
-                        <a href="/srae015/電競遊戲">電競遊戲</a>
+                        <a href="/tbase/19">電競遊戲</a>
                     </li>
                     <li>
-                        <a href="/srae016/動漫玩具">動漫玩具</a>
+                        <a href="/tbase/20">動漫玩具</a>
                     </li>
                 </ul>
             </div>
@@ -253,13 +353,13 @@
                 </h3>
                 <ul style="list-style-type: none">
                     <li>
-                        <a href="/srae018/應用秘技">應用秘技</a>
+                        <a href="/tbase/21">應用秘技</a>
                     </li>
                     <li>
-                        <a href="/srae019/新品測試">新品測試</a>
+                        <a href="/tbase/22">新品測試</a>
                     </li>
                     <li>
-                        <a href="/srae020/Apps 情報">Apps 情報 </a>
+                        <a href="/tbase/23">Apps 情報 </a>
                     </li>
                 </ul>
             </div>
@@ -269,13 +369,13 @@
                 </h3>
                 <ul class="">
                     <li>
-                        <a href="/srae022/業界頭條">業界頭條</a>
+                        <a href="/tbase/24">業界頭條</a>
                     </li>
                     <li>
-                        <a href="/srae023/AI 策略">AI 策略</a>
+                        <a href="/tbase/25">AI 策略</a>
                     </li>
                     <li>
-                        <a href="/srae024/名家專欄">名家專欄 </a>
+                        <a href="/tbase/26">名家專欄 </a>
                     </li>
                 </ul>
             </div>
@@ -285,13 +385,13 @@
                 </h3>
                 <ul style="list-style-type: none">
                     <li>
-                        <a href="https://www.ulifestyle.com.hk/aboutus">私隱政策</a>
+                        <a href="/tbase/27">私隱政策</a>
                     </li>
                     <li>
-                        <a href="https://www.ulifestyle.com.hk/aboutus">免責聲明</a>
+                        <a href="/tbase/28">免責聲明</a>
                     </li>
                     <li>
-                        <a href="/aboutus">聯絡/關於我們</a>
+                        <a href="/tbase/29">聯絡/關於我們</a>
                     </li>
                 </ul>
             </div>
@@ -307,4 +407,14 @@
     {{ super() }}
     {{ moment.include_moment() }}
     {{ moment.lang(g.locale) }}
+{% endblock %}
+{% block popup_content %}
+    <div id="my-popup">
+        <h2>
+            Pop-up title
+        </h2>
+        <p>
+            Pop-up content goes here.
+        </p>
+    </div>
 {% endblock %}

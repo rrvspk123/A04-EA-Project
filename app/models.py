@@ -23,8 +23,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    followed = db.relationship(
+    last_posted = db.Column(db.DateTime, default=datetime.utcnow)
+    followed_topics = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
@@ -72,16 +72,25 @@ class User(UserMixin, db.Model):
         try:
             id = jwt.decode(token, app.config["SECRET_KEY"], algorithms="HS256")[
                 "reset_password"]
-        except:           
+        except:
             return None
         return User.query.get(id)
-
-
 
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Search(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    search = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self) -> str:
+        return f'<Search {self.search}>'
+
+
 
 
 class Post(db.Model):
@@ -93,34 +102,50 @@ class Post(db.Model):
     def __repr__(self) -> str:
         return f'<Post {self.body}>'
 
+class News(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(140))
+    link = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self) -> str:
+        return f'<News {self.title}>'
+
 class Website(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(100))
+    link_web = db.Column(db.String(1000))
     link_p = db.Column(db.String(1000))
     title = db.Column(db.String(1000))
     middle_data = db.Column(db.String(10000))
     attributes = db.Column(db.String(100))
+
+
 
 class Web_tab(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title_w = db.Column(db.String(100))
     link_w = db.Column(db.String(1000))
     attributes = db.Column(db.String(100))
+    website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
+    website = db.relationship('Website', backref='web_tabs')
+
 
 class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(1000))
     title_r = db.Column(db.String(100))
 
+
 class newest_info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_n = db.Column(db.String(1000))
     title_n = db.Column(db.String(100))
+
 
 class promote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_pro = db.Column(db.String(1000))
     link_pro2 = db.Column(db.String(1000))
     title_pro = db.Column(db.String(100))
-    
-

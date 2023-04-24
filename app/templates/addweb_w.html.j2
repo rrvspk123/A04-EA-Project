@@ -7,10 +7,12 @@
     {% endif %}
 {% endblock %}
 {% block addweb_w %}
+    <p>网站tab</p>
     <form method="POST" action="{{ url_for('addweb_w') }}">
         {{ form.csrf_token }}
         <div>{{ form.link_w.label }} {{ form.link_w }}</div>
         <div>{{ form.title_w.label }} {{ form.title_w }}</div>
+        <div>{{ form.attributes.label }} {{ form.attributes }}</div>
         <div>{{ form.submit }}</div>
     </form>
 {% endblock %}
