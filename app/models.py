@@ -154,7 +154,8 @@ class author(db.Model):
     author_id = db.Column(db.String(100),primary_key=True)
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
-
+    author = db.Column(db.Integer, db.ForeignKey('website.author')) 
 class tags(db.Model):
     tag_id = db.Column(db.Integer,primary_key=True)
     tag = db.Column(db.String(100))
+    website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
