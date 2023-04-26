@@ -37,25 +37,6 @@
   position: absolute;
 }
 
-.ellipse-button {
-  display: block;
-  width: 120px;
-  height: 40px;
-  background-color: #333;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  position: absolute;;
-  top: 80%;
-}
-
-.ellipse-button:hover {
-  background-color: #555;
-}
 .ellipse-button2 {
   display: block;
   width: 120px;
@@ -106,6 +87,41 @@ function hideSearch() {
   align-items: center;;
 }
     </style>
+    <script>
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+    
+    function saveColor() {
+      var color = document.getElementById("color-picker").value;
+      setCookie("backgroundColor", color, 365);
+      document.body.style.backgroundColor = color;
+    }
+    
+    window.onload = function() {
+      var color = getCookie("backgroundColor");
+      if (color) {
+        document.body.style.backgroundColor = color;
+      }
+    }
+    </script>
     <nav class="navbar navbar-custom">
         <nav class="container">
             <nav class="navbar-header">
@@ -272,13 +288,22 @@ function hideSearch() {
                             <a href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
                         </li>
                         <li>
-                            <a href="/set_cookie">{{ _('Customize') }}</a>
+                            <input type="color" id="color-picker">
+                            <button onclick="saveColor()">
+                                Save Color
+                            </button>
                         </li>
                     {% endif %}
                 </ul>
             </nav>
         </nav>
     </nav>
+    {% if request.cookies.backgroundColor %}
+        {% set color = request.cookies.backgroundColor %}
+        <script>
+      document.body.style.backgroundColor = "{{ color }}";
+        </script>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <nav class="container">

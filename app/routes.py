@@ -62,6 +62,7 @@ def page2(id):
 
 
 @app.route('/addweb', methods=['GET', 'POST'])
+@login_required
 def addweb():
     form = WebForm()
     if form.validate_on_submit():
@@ -72,6 +73,7 @@ def addweb():
     return render_template('addweb.html.j2', form=form)
 
 @app.route('/addweb_r', methods=['GET', 'POST'])
+@login_required
 def addweb_r():
     form = WebRelateForm()
     if form.validate_on_submit():
@@ -113,6 +115,7 @@ def page(id):
 
 
 @app.route('/addweb_n', methods=['GET', 'POST'])
+@login_required
 def addweb_n():
     form = NewForm()
     if form.validate_on_submit():
@@ -123,6 +126,7 @@ def addweb_n():
     return render_template('addweb_n.html.j2', form=form)
 
 @app.route('/addweb_pro', methods=['GET', 'POST'])
+@login_required
 def addweb_pro():
     form = ProForm()
     if form.validate_on_submit():
@@ -133,6 +137,7 @@ def addweb_pro():
     return render_template('addweb_pro.html.j2', form=form)
 
 @app.route('/addweb_w', methods=['GET', 'POST'])
+@login_required
 def addweb_w():
     form = tabForm()
     if form.validate_on_submit():
@@ -161,6 +166,7 @@ def search():
     return render_template('search.html.j2',result=result)
 
 @app.route("/testing")
+@login_required
 def testing():
     new_data = db.session.query(newest_info).all()
     return render_template("testing.html.j2", new_data=new_data)

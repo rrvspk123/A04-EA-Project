@@ -20,6 +20,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
+    password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_posted = db.Column(db.DateTime, default=datetime.utcnow)
@@ -119,6 +120,7 @@ class Website(db.Model):
     title = db.Column(db.String(1000))
     middle_data = db.Column(db.String(10000))
     attributes = db.Column(db.String(100))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 
@@ -135,6 +137,7 @@ class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(1000))
     title_r = db.Column(db.String(100))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 class newest_info(db.Model):
