@@ -8,6 +8,15 @@ from flask_login import UserMixin
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
+class Website(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(100))
+    link_web = db.Column(db.String(1000))
+    link_p = db.Column(db.String(1000))
+    title = db.Column(db.String(1000))
+    middle_data = db.Column(db.String(10000))
+    attributes = db.Column(db.String(100))
+
 
 followers = db.Table(
     'followers',
@@ -111,15 +120,6 @@ class News(db.Model):
 
     def __repr__(self) -> str:
         return f'<News {self.title}>'
-
-class Website(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(100))
-    link_web = db.Column(db.String(1000))
-    link_p = db.Column(db.String(1000))
-    title = db.Column(db.String(1000))
-    middle_data = db.Column(db.String(10000))
-    attributes = db.Column(db.String(100))
 
 
 
