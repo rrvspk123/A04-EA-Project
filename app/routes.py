@@ -232,6 +232,7 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html.j2', form=form)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
  

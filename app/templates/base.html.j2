@@ -272,7 +272,7 @@ function hideSearch() {
                             <a href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
                         </li>
                         <li>
-                            <a href="/change-color">{{ _('Customize') }}</a>
+                            <a href="/set_cookie">{{ _('Customize') }}</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -320,6 +320,7 @@ function hideSearch() {
             {% block search %}{% endblock %}
             {% block login %}{% endblock %}
             {% block register %}{% endblock %}
+            {% block add_cookie %}{% endblock %}
             {% block testing %}{% endblock %}
         </nav>
     </nav>

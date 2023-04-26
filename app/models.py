@@ -95,7 +95,7 @@ class Search(db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    body = db.Column(db.String(150))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -143,9 +143,9 @@ class newest_info(db.Model):
     link_n = db.Column(db.String(1000))
     title_n = db.Column(db.String(100))
 
-
 class promote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_pro = db.Column(db.String(1000))
     link_pro2 = db.Column(db.String(1000))
     title_pro = db.Column(db.String(100))
+
