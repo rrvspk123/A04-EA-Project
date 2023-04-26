@@ -8,15 +8,6 @@ from flask_login import UserMixin
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class Website(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(100))
-    link_web = db.Column(db.String(1000))
-    link_p = db.Column(db.String(1000))
-    title = db.Column(db.String(1000))
-    middle_data = db.Column(db.String(10000))
-    attributes = db.Column(db.String(100))
-
 
 followers = db.Table(
     'followers',
@@ -104,7 +95,7 @@ class Search(db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    body = db.Column(db.String(150))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -122,6 +113,19 @@ class News(db.Model):
         return f'<News {self.title}>'
 
 
+=======
+class Website(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(100))
+    link_web = db.Column(db.String(1000))
+    link_p = db.Column(db.String(1000))
+    title = db.Column(db.String(1000))
+    middle_data = db.Column(db.String(10000))
+    attributes = db.Column(db.String(100))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+
 
 class Web_tab(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -136,6 +140,7 @@ class Website_relate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link = db.Column(db.String(1000))
     title_r = db.Column(db.String(100))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 class newest_info(db.Model):
@@ -143,12 +148,12 @@ class newest_info(db.Model):
     link_n = db.Column(db.String(1000))
     title_n = db.Column(db.String(100))
 
-
 class promote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_pro = db.Column(db.String(1000))
     link_pro2 = db.Column(db.String(1000))
     title_pro = db.Column(db.String(100))
+
 
 class author(db.Model):
     author_id = db.Column(db.String(100),primary_key=True)
@@ -159,3 +164,4 @@ class tags(db.Model):
     tag_id = db.Column(db.Integer,primary_key=True)
     tag = db.Column(db.String(100))
     website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
+
