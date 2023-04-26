@@ -151,3 +151,15 @@ class promote(db.Model):
     link_pro2 = db.Column(db.String(1000))
     title_pro = db.Column(db.String(100))
 
+class author(db.Model):
+    author_id = db.Column(db.String(100),primary_key=True)
+    first_name = db.Column(db.String(100))
+    last_name = db.Column(db.String(100))
+    website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
+    website = db.relationship('Website', backref='author')
+
+class tags(db.Model):
+    tag_id = db.Column(db.Integer,primary_key=True)
+    tag = db.Column(db.String(100))
+    website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
+    website = db.relationship('Website', backref='tags')
