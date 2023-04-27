@@ -201,9 +201,15 @@
          if(timeoutId) {
             clearTimeout(timeoutId);
          }
-        timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
+        timeoutId = setTimeout(showSlides, 3000); // Change image every 5 seconds
       }
   </script>
+  {% if current_user.is_anonymous %}
+  {% else %}
+    <div class="row">
+      <a href="addweb">add_website</a>
+    </div>
+  {% endif %}
   {# 网页下半部分的设计 #}
   <style>
 .name_tag1{
@@ -458,7 +464,9 @@
   {% endfor %}
   <div class="invisible-line">-</div>
   <a href="/tbase/2">
-    <button class="ellipse-button">View more</button>
+    <button class="ellipse-button">
+      View more
+    </button>
   </a>
 </div>
 {# 游戏动漫 #}

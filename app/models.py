@@ -144,6 +144,7 @@ class newest_info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     link_n = db.Column(db.String(1000))
     title_n = db.Column(db.String(100))
+    website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
 
 class promote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -156,10 +157,10 @@ class author(db.Model):
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
     website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
-    website = db.relationship('Website', backref='author')
+
 
 class tags(db.Model):
     tag_id = db.Column(db.Integer,primary_key=True)
     tag = db.Column(db.String(100))
     website_id = db.Column(db.Integer, db.ForeignKey('website.id'))
-    website = db.relationship('Website', backref='tags')
+
