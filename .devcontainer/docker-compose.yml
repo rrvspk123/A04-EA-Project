@@ -18,17 +18,16 @@ services:
       - "5001:5001" # app(debug) port
       - "3000:3000" # remote debugger attach port
 
-  postgres:
+  postgresdb:
     container_name: postgres_container
     image: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgresdb
+      POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Mount the SQL script here
     ports:
       - "5432:5432"
     networks:
