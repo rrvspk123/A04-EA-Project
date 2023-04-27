@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   app:
@@ -18,16 +18,17 @@ services:
       - "5001:5001" # app(debug) port
       - "3000:3000" # remote debugger attach port
 
-  postgresdb:
+  postgres:
     container_name: postgres_container
     image: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: postgresdb
       POSTGRES_PASSWORD: postgres
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Mount the SQL script here
     ports:
       - "5432:5432"
     networks:
@@ -40,7 +41,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_SERVER_MODE: "False"
       PGADMIN_CONFIG_PROXY_X_HOST_COUNT: 1
       PGADMIN_CONFIG_PROXY_X_PREFIX_COUNT: 1
     volumes:
@@ -54,7 +55,7 @@ services:
   mailhog:
     image: mailhog/mailhog
     logging:
-      driver: 'none' # disable saving logs
+      driver: "none" # disable saving logs
     ports:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
